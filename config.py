@@ -16,20 +16,17 @@ def is_enabled(value, default):
 
 # Mandatory variables for the bot to start
 # API ID from https://my.telegram.org/auth
-API_ID = int(os.environ.get("API_ID"))
+API_ID = int(os.environ.get("API_ID", "Api Id"))
 # API Hash from https://my.telegram.org/auth
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")  # Bot token from @BotFather
-ADMINS = (
-    [int(i.strip()) for i in os.environ.get("ADMINS").split(",")]
+API_HASH = os.environ.get("API_HASH", "Api hash")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "token")  # Bot token from @BotFather
+ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split(",")]
     if os.environ.get("ADMINS")
     else []
 )
 
 DATABASE_NAME = os.environ.get("DATABASE_NAME", "MdiskConvertor")
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL", None
-)  # mongodb uri from https://www.mongodb.com/
+DATABASE_URL = os.environ.get("DATABASE_URL", None)  # mongodb uri from https://www.mongodb.com/
 OWNER_ID = int(os.environ.get("OWNER_ID"))  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
@@ -37,10 +34,8 @@ ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 LOG_CHANNEL = int(
     os.environ.get("LOG_CHANNEL", "0")
 )  # log channel for information about users
-UPDATE_CHANNEL = os.environ.get(
-    "UPDATE_CHANNEL", False)  # For Force Subscription
-BROADCAST_AS_COPY = is_enabled(
-    (os.environ.get("BROADCAST_AS_COPY", "False")), False
+UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", False)  # For Force Subscription
+BROADCAST_AS_COPY = is_enabled((os.environ.get("BROADCAST_AS_COPY", "False")), False
 )  # true if forward should be avoided
 IS_PRIVATE = is_enabled(
     os.environ.get("IS_PRIVATE", "False"), "False"
