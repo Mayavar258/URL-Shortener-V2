@@ -19,7 +19,7 @@ def is_enabled(value, default):
 API_ID = "1522127"
 # API Hash from https://my.telegram.org/auth
 API_HASH = "1252ffe16baf341bfd7236f92df76b0e"
-BOT_TOKEN = "6784231545:AAGU7sU_8zgf_jWdfZ0sPxmNEhy9NPzgjUI" # Bot token from @BotFather
+BOT_TOKEN = "6784231545:AAFqabbwfT8Vb34-pgs6RZZ5V-jgJJMRI28" # Bot token from @BotFather
 ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split(",")]
     if os.environ.get("ADMINS")
     else []
@@ -32,7 +32,7 @@ ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = "-1002117005762"
-UPDATE_CHANNEL = "-1001919595714" # For Force Subscription
+UPDATE_CHANNEL = "ANLINKS_IN" # For Force Subscription
 BROADCAST_AS_COPY = is_enabled((os.environ.get("BROADCAST_AS_COPY", "False")), False
 )  # true if forward should be avoided
 IS_PRIVATE = is_enabled(
