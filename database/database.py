@@ -35,12 +35,12 @@ class Database:
         newvalues = {"$inc": {"posts": posts}}
         return await self.stats.update_one(myquery, newvalues)
 
-    async def update_links(self, links: int, droplink: int = 0, mdisk: int = 0):
+    async def update_links(self, links: int, anlinks: int = 0, mdisk: int = 0):
         myquery = {
             "bot": helpers.temp.BOT_USERNAME,
         }
         newvalues = {
-            "$inc": {"links": links, "mdisk_links": mdisk, "shortener_links": droplink}
+            "$inc": {"links": links, "mdisk_links": mdisk, "shortener_links": anlinks}
         }
         return await self.stats.update_one(myquery, newvalues)
 
