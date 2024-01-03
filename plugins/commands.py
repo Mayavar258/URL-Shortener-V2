@@ -33,15 +33,6 @@ user_commands = [
 avl_web = [
     
     "anlinks.in",
-    "droplink.co",
-    "gplinks.in",
-    "tnlink.in",
-    "za.gl",
-    "du-link.in",
-    "viplink.in",
-    "shorturllink.in",
-    "shareus.in",
-    "earnspace.in",
 ]
 
 avl_web1 = "".join(f"- {i}\n" for i in avl_web)
