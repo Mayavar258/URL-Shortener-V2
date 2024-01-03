@@ -256,7 +256,7 @@ async def bypass_func(url):
     return c_link
 
 
-async def is_droplink_url(url):
+async def is_anlinks_url(url):
     domain = urlparse(url).netloc
     return url if "droplink.co" in domain else False
 
@@ -298,14 +298,14 @@ async def update_stats(m: Message, method):
     mdisk_links = re.findall(
         r'https?://mdisk.me[^\s`!()\[\]{};:".,<>?«»“”‘’]+', message
     )
-    droplink_links = await extract_link(message)
+    anlinks_links = await extract_link(message)
     total_links = len(droplink_links)
     await db.update_posts(1)
     if method == "mdisk":
-        droplink_links = []
+        anlinks_links = []
     if method == "shortener":
         mdisk_links = []
-    await db.update_links(total_links, len(droplink_links), len(mdisk_links))
+    await db.update_links(total_links, len(anlinks_links), len(mdisk_links))
 
 
 async def get_me_button(user):
