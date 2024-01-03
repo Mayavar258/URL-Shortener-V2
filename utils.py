@@ -75,7 +75,7 @@ async def main_convertor_handler(
     METHODS = {
         "mdisk": mdisk_api_handler,
         "shortener": replace_link,
-        "mdlink": mdisk_droplink_convertor,
+        "mdlink": mdisk_anlinks_convertor,
     }
 
     # Replacing the username with your username.
