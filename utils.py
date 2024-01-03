@@ -217,7 +217,7 @@ async def replace_link(user, text, alias=""):
     return text
 
 
-async def mdisk_droplink_convertor(user, text, alias=""):
+async def mdisk_anlinks_convertor(user, text, alias=""):
     links = await mdisk_api_handler(user, text)
     links = await replace_link(user, links, alias=alias)
     return links
@@ -258,7 +258,7 @@ async def bypass_func(url):
 
 async def is_anlinks_url(url):
     domain = urlparse(url).netloc
-    return url if "droplink.co" in domain else False
+    return url if "anlinks.in" in domain else False
 
 
 async def broadcast_admins(c: Client, Message, sender=False):
@@ -299,7 +299,7 @@ async def update_stats(m: Message, method):
         r'https?://mdisk.me[^\s`!()\[\]{};:".,<>?«»“”‘’]+', message
     )
     anlinks_links = await extract_link(message)
-    total_links = len(droplink_links)
+    total_links = len(anlinks_links)
     await db.update_posts(1)
     if method == "mdisk":
         anlinks_links = []
