@@ -33,19 +33,13 @@ ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 #  Optionnal variables
 LOG_CHANNEL = "-1002117005762"
 UPDATE_CHANNEL = "ANLINKS_IN" # For Force Subscription
-BROADCAST_AS_COPY = is_enabled((os.environ.get("BROADCAST_AS_COPY", "False")), False
-)  # true if forward should be avoided
-IS_PRIVATE = is_enabled(
-    os.environ.get("IS_PRIVATE", "False"), "False"
-)  # true for private use and restricting users
-SOURCE_CODE = os.environ.get(
-    "SOURCE_CODE", "https://github.com/mayavar258/URL-Shortener-V2"
-)  # for upstream repo
+BROADCAST_AS_COPY = is_enabled((os.environ.get("BROADCAST_AS_COPY", "False")), False)  # true if forward should be avoided
+IS_PRIVATE = is_enabled(os.environ.get("IS_PRIVATE", "False"), 'False')  # true for private use and restricting users
+SOURCE_CODE = os.environ.get("SOURCE_CODE", "https://github.com/mayavar258/URL-Shortener-V2")  # for upstream repo
 # image when someone hit /start
 WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", "https://telegra.ph/file/e6706b0526df51784f349.jpg")
 LINK_BYPASS = is_enabled(
-    (os.environ.get("LINK_BYPASS", "False")), False
-)  # if true, urls will be bypassed
+    (os.environ.get("LINK_BYPASS", "False")), False)  # if true, urls will be bypassed
 # your shortener site domain
 BASE_SITE = os.environ.get("BASE_SITE", "anlinks.in")
 
