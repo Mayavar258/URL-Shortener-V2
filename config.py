@@ -26,14 +26,14 @@ ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split("1006159057")]
     else []
 )
 
-DATABASE_NAME = os.environ.get("DATABASE_NAME", "Anlinks_Official_Bot")
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "Cluster0")
 DATABASE_URL = "mongodb+srv://Cluster0:AMRKS@cluster0.6sxfz9f.mongodb.net/?retryWrites=true&w=majority"  # mongodb uri from https://www.mongodb.com/
 OWNER_ID = "1006159057"  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = "-1002117005762"
-UPDATE_CHANNEL = "-1001919595714" # For Force Subscription
+UPDATE_CHANNEL = "-1002145072505" # For Force Subscription
 BROADCAST_AS_COPY = is_enabled((os.environ.get("BROADCAST_AS_COPY", "False")), False)  # true if forward should be avoided
 IS_PRIVATE = is_enabled(os.environ.get("IS_PRIVATE", "False"), 'False')  # true for private use and restricting users
 SOURCE_CODE = os.environ.get("SOURCE_CODE", "https://github.com/mayavar258/URL-Shortener-V2")  # for upstream repo
