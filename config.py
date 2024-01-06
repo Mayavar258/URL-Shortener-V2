@@ -21,7 +21,7 @@ API_ID = "1522127"
 API_HASH = "1252ffe16baf341bfd7236f92df76b0e"
 BOT_TOKEN = "6784231545:AAFqabbwfT8Vb34-pgs6RZZ5V-jgJJMRI28" # Bot token from @BotFather
 IS_PRIVATE = False
-ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split("1951205538")]
+ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split("1006159057")]
     if os.environ.get("ADMINS")
     else []
 )
