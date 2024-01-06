@@ -47,7 +47,7 @@ BASE_SITE = os.environ.get("BASE_SITE", "anlinks.in")
 # For Admin use
 CHANNELS = is_enabled((os.environ.get("CHANNELS", "True")), True)
 CHANNEL_ID = (
-    [int(i.strip()) for i in os.environ.get("CHANNEL_ID").split("-1001919595714")]
+    [int(i.strip()) for i in os.environ.get("CHANNEL_ID").split("-1001714342849")]
     if os.environ.get("CHANNEL_ID")
     else []
 )
