@@ -19,14 +19,14 @@ def is_enabled(value, default):
 API_ID = "1522127"
 # API Hash from https://my.telegram.org/auth
 API_HASH = "1252ffe16baf341bfd7236f92df76b0e"
-BOT_TOKEN = "6784231545:AAFqabbwfT8Vb34-pgs6RZZ5V-jgJJMRI28" # Bot token from @BotFather
+BOT_TOKEN = "6735390787:AAFgC8A7BloHiOSAJWcj8uyQJi-f_BRdlhU" # Bot token from @BotFather
 IS_PRIVATE = False
 ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split("1006159057")]
     if os.environ.get("ADMINS")
     else []
 )
 
-DATABASE_NAME = os.environ.get("DATABASE_NAME", "MdiskConvertor")
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "Anlinks_Official_Bot")
 DATABASE_URL = "mongodb+srv://Cluster0:AMRKS@cluster0.6sxfz9f.mongodb.net/?retryWrites=true&w=majority"  # mongodb uri from https://www.mongodb.com/
 OWNER_ID = "1006159057"  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
