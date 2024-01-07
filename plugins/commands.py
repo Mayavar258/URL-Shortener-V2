@@ -41,16 +41,7 @@ avl_web1 = "".join(f"- {i}\n" for i in avl_web)
 @Client.on_message(filters.command("start") & filters.private & filters.incoming)
 @private_use
 async def start(c: Client, m: Message):
-    NEW_USER_REPLY_MARKUP = [
-        [
-            InlineKeyboardButton("Ban", callback_data=f"ban#{m.from_user.id}"),
-            InlineKeyboardButton("Close", callback_data="delete"),
-        ]
-    ]
     is_user = await is_user_exist(m.from_user.id)
-
-    reply_markup = InlineKeyboardMarkup(NEW_USER_REPLY_MARKUP)
-
     if not is_user and LOG_CHANNEL:
         await c.send_message(
             LOG_CHANNEL,
@@ -118,7 +109,7 @@ async def method_handler(c: Client, m: Message):
         return await m.reply(s, reply_markup=METHOD_REPLY_MARKUP)
     elif len(cmd) == 2:
         method = cmd[1]
-        if method not in ["mdisk", "mdlink", "shortener"]:
+        if method not in ["shortener"]:
             return await m.reply(METHOD_MESSAGE.format(method=user["method"]))
         await update_user_info(user_id, {"method": method})
         await m.reply(f"Method updated successfully to {method}")
@@ -160,8 +151,6 @@ async def stats_handler(c: Client, m: Message):
         msg = f"""
 **- Total Users:** `{total_users}`
 **- Total Posts Sent:** `{link_stats['posts']}`
-**- Total Links Shortened:** `{link_stats['links']}`
-**- Total Mdisk Links Shortened:** `{link_stats['mdisk_links']}`
 **- Total Shortener Links Shortened:** `{link_stats['shortener_links']}`
 **- Used Storage:** `{size}`
 **- Total Free Storage:** `{free}`
@@ -183,23 +172,9 @@ async def log_file(bot, message):
         await message.reply_document("TelegramBot.log")
     except Exception as e:
         await message.reply(str(e))
+        
 
-
-@Client.on_message(filters.command("mdisk_api") & filters.private)
-@private_use
-async def mdisk_api_handler(bot, message: Message):
-    user_id = message.from_user.id
-    user = await get_user(user_id)
-    cmd = message.command
-    if len(cmd) == 1:
-        return await message.reply(MDISK_API_MESSAGE.format(user["mdisk_api"]))
-    elif len(cmd) == 2:
-        api = cmd[1].strip()
-        await update_user_info(user_id, {"mdisk_api": api})
-        await message.reply(f"Mdisk API updated successfully to {api}")
-
-
-@Client.on_message(filters.command("shortener_api") & filters.private)
+@Client.on_message(filters.command("api") & filters.private)
 @private_use
 async def shortener_api_handler(bot, m: Message):
     user_id = m.from_user.id
@@ -343,7 +318,6 @@ async def me_handler(bot, m: Message):
         base_site=user["base_site"],
         method=user["method"],
         shortener_api=user["shortener_api"],
-        mdisk_api=user["mdisk_api"],
         username=user["username"],
         header_text=user["header_text"].replace(r"\n", "\n")
         if user["header_text"]
