@@ -33,7 +33,7 @@ ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = "-1002117005762"
-UPDATE_CHANNEL = "None" # For Force Subscription
+UPDATE_CHANNEL = "-1002145114613" # For Force Subscription
 BROADCAST_AS_COPY = is_enabled((os.environ.get("BROADCAST_AS_COPY", "False")), False)  # true if forward should be avoided
 IS_PRIVATE = is_enabled(os.environ.get("IS_PRIVATE", "False"), 'False')  # true for private use and restricting users
 SOURCE_CODE = os.environ.get("SOURCE_CODE", "https://github.com/mayavar258/URL-Shortener-V2")  # for upstream repo
