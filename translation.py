@@ -11,14 +11,18 @@ For example: <code>/batch -100xxx</code>
 I'll handle the rest and get those links shortened or converted in a short time! 💪
 """
 
-START_MESSAGE = """Hi there {} 
+START_MESSAGE = """Hi there {}, I am a Bulk Link Converter for anlinks.in. I Can Convert Links Directly From Your anlinks.in Account
 
-Send me a link or post and I'll shorten it for you!
+1. Go To 👉 https://anlinks.in/
+2. Then Copy API Key
+3. Then Type /api than give a single space and then paste your API Key (see example to understand more...)
 
-To learn more about what I can do, just type /help.
+(See Example.👇)
+Example:
+/api 1234567890abcdef1234567890abcdef12345678
 
-Method: {}
-Shortener website: {}
+
+⭐️ If you need any help or Support Contact Us at @anlinksupport
 """
 
 HELP_MESSAGE = """Hey there! My name is {firstname} and I'm a link convertor and shortener bot here to make your work easier and help you earn more 💰.
