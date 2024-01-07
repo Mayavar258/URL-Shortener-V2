@@ -46,23 +46,16 @@ Useful commands:
 """
 
 ABOUT_TEXT = """
-**My Details:**
-
-`🤖 Name:` ** {} **
-    
-`📝 Language:` [Python 3](https://www.python.org/)
-`🧰 Framework:` [Pyrogram](https://github.com/pyrogram/pyrogram)
-`👨‍💻 Developer:` [Dev](t.me/ask_admin001)
-`📢 Support:` [Talk Bot](https://t.me/ask_admin001)
-`🌐 Source Code:` [GitHub](https://github.com/kevinnadar22/URL-Shortener-V2/)
+Any Problem Please Contact Me 👉 @TgButterfly
 """
 
 
 METHOD_MESSAGE = """
-Current Method: {method}
-    
-Methods Available:
-> `shortener` - Short all the links of the post to {shortener} link directly.
+☝️ SEND YOUR API TOKEN TO ME.
+
+Click On The Button Below
+Copy Api Token From Website
+Paste & Send Token To Me.
 """
 
 CUSTOM_ALIAS_MESSAGE = """For custom alias, `[link] | [custom_alias]`, Send in this format
@@ -105,11 +98,7 @@ HELP_REPLY_MARKUP = InlineKeyboardMarkup(
 
 ABOUT_REPLY_MARKUP = InlineKeyboardMarkup(
     [
-        [
-            InlineKeyboardButton("Home", callback_data="start_command"),
-            InlineKeyboardButton("Help", callback_data="help_command"),
-        ],
-        [InlineKeyboardButton("Close", callback_data="delete")],
+        [InlineKeyboardButton("⏪ Back", callback_data="start_command")],
     ]
 )
 
@@ -128,23 +117,14 @@ START_MESSAGE_REPLY_MARKUP = InlineKeyboardMarkup(
 METHOD_REPLY_MARKUP = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(
-                "MDLINK", callback_data="change_method#mdlink"
-            ),
-            InlineKeyboardButton(
-                "Shortener", callback_data="change_method#shortener"
-            ),
-            InlineKeyboardButton("Mdisk", callback_data="change_method#mdisk"),
-        ],
-        [
-            InlineKeyboardButton("Back", callback_data="help_command"),
-            InlineKeyboardButton("Close", callback_data="delete"),
+            InlineKeyboardButton("GET API TOKEN 🎫", url=f"https://anlinks.in/member/tools/api"),
+            InlineKeyboardButton("⏪ Back", callback_data="start_command"),
         ],
     ]
 )
 
 BACK_REPLY_MARKUP = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("Back", callback_data="help_command")]]
+    [[InlineKeyboardButton("Back", callback_data="start_command")]]
 )
 
 USER_ABOUT_MESSAGE = """
