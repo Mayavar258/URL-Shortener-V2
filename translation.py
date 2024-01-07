@@ -11,9 +11,9 @@ For example: <code>/batch -100xxx</code>
 I'll handle the rest and get those links shortened or converted in a short time! 💪
 """
 
-START_MESSAGE = """Hi there {}, I am a Bulk Link Converter for anlinks.in. I Can Convert Links Directly From Your anlinks.in Account
+START_MESSAGE = """Hi there {}, I am a Bulk Link Converter for Anlinks.in. I Can Convert Links Directly From Your Anlinks.in Account
 
-1. Go To 👉 https://anlinks.in/
+1. Go To 👉 https://Anlinks.in/
 2. Then Copy API Key
 3. Then Type /api than give a single space and then paste your API Key (see example to understand more...)
 
@@ -22,7 +22,7 @@ Example:
 /api 1234567890abcdef1234567890abcdef12345678
 
 
-⭐️ If you need any help or Support Contact Us at @anlinksupport
+⭐️ If you need any help or Support Contact Us at @TGButterfly
 """
 
 HELP_MESSAGE = """Hey there! My name is {firstname} and I'm a link convertor and shortener bot here to make your work easier and help you earn more 💰.
@@ -62,14 +62,7 @@ METHOD_MESSAGE = """
 Current Method: {method}
     
 Methods Available:
-
-> `mdlink` - Change all the links of the post to your MDisk account first and then short to {shortener} link.
-
 > `shortener` - Short all the links of the post to {shortener} link directly.
-
-> `mdisk` - Save all the links of the post to your Mdisk account.
-    
-To change method, choose it from the following options:
 """
 
 CUSTOM_ALIAS_MESSAGE = """For custom alias, `[link] | [custom_alias]`, Send in this format
@@ -123,12 +116,11 @@ ABOUT_REPLY_MARKUP = InlineKeyboardMarkup(
 START_MESSAGE_REPLY_MARKUP = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("Help", callback_data="help_command"),
-            InlineKeyboardButton("About", callback_data="about_command"),
+            InlineKeyboardButton("Update Channel", url=f"https://t me/good_nation"),
+            InlineKeyboardButton("Support 🤝", callback_data="about_command"),
         ],
         [
-            InlineKeyboardButton("Method", callback_data="method_command"),
-            InlineKeyboardButton("Close", callback_data="delete"),
+            InlineKeyboardButton("Connect To Anlinks🛠️", callback_data="method_command")
         ],
     ]
 )
