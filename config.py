@@ -19,7 +19,7 @@ def is_enabled(value, default):
 API_ID = "1522127"
 # API Hash from https://my.telegram.org/auth
 API_HASH = "1252ffe16baf341bfd7236f92df76b0e"
-BOT_TOKEN = "6784231545:AAHOlDWzJO8l14XbFFsOb-heaXnXyXV9D2E" # Bot token from @BotFather
+BOT_TOKEN = "6735390787:AAFgC8A7BloHiOSAJWcj8uyQJi-f_BRdlhU" # Bot token from @BotFather
 IS_PRIVATE = False
 ADMINS = ([int(i.strip()) for i in os.environ.get("ADMINS").split("1006159057")]
     if os.environ.get("ADMINS")
@@ -42,7 +42,7 @@ WELCOME_IMAGE = os.environ.get("WELCOME_IMAGE", "https://telegra.ph/file/e6706b0
 LINK_BYPASS = is_enabled(
     (os.environ.get("LINK_BYPASS", "False")), False)  # if true, urls will be bypassed
 # your shortener site domain
-BASE_SITE = os.environ.get("BASE_SITE", "anlinks.in")
+BASE_SITE = os.environ.get("BASE_SITE", "Anlinks.in")
 
 # For Admin use
 CHANNELS = is_enabled((os.environ.get("CHANNELS", "True")), True)
