@@ -70,7 +70,7 @@ async def start_handler(c: Client, m: Message):
         await m.reply_photo(photo=WELCOME_IMAGE, caption=text, reply_markup=reply_markup)
     else:
         await m.reply_text(text, reply_markup=reply_markup, disable_web_page_preview=True)
-
+        
 
 @Client.on_message(filters.command("help") & filters.private)
 @private_use
@@ -82,11 +82,16 @@ async def help_command(c, m: Message):
         owner="@ask_admin001",
     )
 
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("⏪ Back", callback_data="start_command")],
+        ]
+    )
+
     if WELCOME_IMAGE:
-        return await m.reply_photo(
-            photo=WELCOME_IMAGE, caption=s, reply_markup=HELP_REPLY_MARKUP
-        )
-    await m.reply_text(s, reply_markup=HELP_REPLY_MARKUP, disable_web_page_preview=True)
+        return await m.reply_photo(photo=WELCOME_IMAGE, caption=s, reply_markup=reply_markup)
+    else:
+        await m.reply_text(s, reply_markup=reply_markup, disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("about"))
