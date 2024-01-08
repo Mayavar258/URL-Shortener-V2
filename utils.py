@@ -17,7 +17,6 @@ from shortzy import Shortzy
 
 from config import *
 from database import db
-from helpers import ping_server
 from plugins import web_server
 
 logger = logging.getLogger(__name__)
