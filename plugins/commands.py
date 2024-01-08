@@ -13,7 +13,7 @@ from database import db
 from database.users import get_user, is_user_exist, total_users_count, update_user_info
 from helpers import temp
 from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from plugins.filters import private_use
 from translation import *
 from utils import extract_link, get_me_button, get_size
@@ -31,7 +31,6 @@ user_commands = [
     "me",
 ]
 avl_web = [
-    
     "anlinks.in",
 ]
 
@@ -55,10 +54,22 @@ async def start_handler(c: Client, m: Message):
         m.from_user.mention, new_user["method"], new_user["base_site"]
     )
 
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton("Update Channel", url="https://t.me/good_nation"),
+                InlineKeyboardButton("Support 🤝", callback_data="about_command"),
+            ],
+            [
+                InlineKeyboardButton("Connect To Anlinks🛠️", callback_data="method_command")
+            ],
+        ]
+    )
+
     if WELCOME_IMAGE:
-        await m.reply_photo(photo=WELCOME_IMAGE, caption=text, reply_markup=START_MESSAGE_REPLY_MARKUP)
+        await m.reply_photo(photo=WELCOME_IMAGE, caption=text, reply_markup=reply_markup)
     else:
-        await m.reply_text(text, reply_markup=START_MESSAGE_REPLY_MARKUP, disable_web_page_preview=True)
+        await m.reply_text(text, reply_markup=reply_markup, disable_web_page_preview=True)
 
 
 @Client.on_message(filters.command("help") & filters.private)
