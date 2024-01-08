@@ -67,7 +67,7 @@ async def start_handler(c: Client, m: Message):
     )
 
     if WELCOME_IMAGE:
-        await m.reply_photo(photo=WELCOME_IMAGE, caption=text, reply_markup=reply_markup)
+        await m.reply_text(text, reply_markup=reply_markup, disable_web_page_preview=True)
     else:
         await m.reply_text(text, reply_markup=reply_markup, disable_web_page_preview=True)
         
@@ -89,7 +89,7 @@ async def help_command(c, m: Message):
     )
 
     if WELCOME_IMAGE:
-        return await m.reply_photo(photo=WELCOME_IMAGE, caption=s, reply_markup=reply_markup)
+        return await m.reply_text(s, reply_markup=reply_markup, disable_web_page_preview=True)
     else:
         await m.reply_text(s, reply_markup=reply_markup, disable_web_page_preview=True)
 
@@ -97,13 +97,16 @@ async def help_command(c, m: Message):
 @Client.on_message(filters.command("about"))
 @private_use
 async def about_command(c, m: Message):
-    reply_markup = ABOUT_REPLY_MARKUP
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("⏪ Back", callback_data="start_command")],
+        ]
+    )
 
     bot = await c.get_me()
     if WELCOME_IMAGE:
-        return await m.reply_photo(
-            photo=WELCOME_IMAGE,
-            caption=ABOUT_TEXT.format(bot.mention(style="md")),
+        return await m.reply_text(
+            text=ABOUT_TEXT.format(bot.mention(style="md")),
             reply_markup=reply_markup,
         )
     await m.reply_text(
