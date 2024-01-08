@@ -173,13 +173,21 @@ async def on_callback_query(bot: Client, query: CallbackQuery):
         )
 
     elif query.data == "start_command":
-        new_user = await get_user(query.from_user.id)
-        tit = START_MESSAGE.format(
-            query.from_user.mention, new_user["method"], new_user["base_site"]
-        )
-
-        await query.message.edit(
-            tit, reply_markup=START_MESSAGE_REPLY_MARKUP, disable_web_page_preview=True
+    new_user = await get_user(query.from_user.id)
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton("Update Channel", url="https://t.me/good_nation"),
+                InlineKeyboardButton("Support 🤝", callback_data="about_command"),
+            ],
+            [
+                InlineKeyboardButton("Connect To Anlinks🛠️", callback_data="method_command")
+            ],
+        ]
+    )
+    await query.message.edit(
+        text = START_MESSAGE.format(
+        m.from_user.mention, new_user["method"], new_user["base_site"], disable_web_page_preview=True,
         )
 
     elif query.data.startswith("change_method"):
