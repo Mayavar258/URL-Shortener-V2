@@ -178,7 +178,6 @@ async def on_callback_query(bot: Client, query: CallbackQuery):
             query.from_user.mention, new_user["method"], new_user["base_site"]
         )
         reply_markup = InlineKeyboardMarkup(
-        tit = START_MESSAGE.format(
         [
             [
                 InlineKeyboardButton("Update Channel", url="https://t.me/good_nation"),
