@@ -164,15 +164,15 @@ async def on_callback_query(bot: Client, query: CallbackQuery):
             disable_web_page_preview=True,
         )
 
-    elif query.data == "about_command":
-        bot = await bot.get_me()
-        await query.message.edit(
-            ABOUT_TEXT.format(bot.mention(style="md")),
-            reply_markup=ABOUT_REPLY_MARKUP,
-            disable_web_page_preview=True,
-        )
+elif query.data == "about_command":
+    bot = await bot.get_me()
+    await query.message.edit(
+        text=ABOUT_TEXT.format(bot.mention(style="md")),
+        reply_markup=ABOUT_REPLY_MARKUP,
+        disable_web_page_preview=True,
+    )
 
-    elif query.data == "start_command":
+elif query.data == "start_command":
     new_user = await get_user(query.from_user.id)
     reply_markup = InlineKeyboardMarkup(
         [
@@ -186,24 +186,28 @@ async def on_callback_query(bot: Client, query: CallbackQuery):
         ]
     )
     await query.message.edit(
-        text = START_MESSAGE.format(
-        m.from_user.mention, new_user["method"], new_user["base_site"], disable_web_page_preview=True,
-        )
+        text=START_MESSAGE.format(
+            query.from_user.mention, new_user["method"], new_user["base_site"]
+        ),
+        reply_markup=reply_markup,
+        disable_web_page_preview=True,
+    )
 
-    elif query.data.startswith("change_method"):
-        method_name = query.data.split("#")[1]
-        user = temp.BOT_USERNAME
-        await update_user_info(user_id, {"method": method_name})
-        REPLY_MARKUP = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Back", callback_data="method_command")]]
-        )
+elif query.data.startswith("change_method"):
+    method_name = query.data.split("#")[1]
+    user = temp.BOT_USERNAME
+    await update_user_info(user_id, {"method": method_name})
+    REPLY_MARKUP = InlineKeyboardMarkup(
+        [[InlineKeyboardButton("Back", callback_data="method_command")]]
+    )
 
-        await query.message.edit(
-            "Method changed successfully to `{method}`".format(
-                method=method_name, username=user
-            ),
-            reply_markup=REPLY_MARKUP,
-        )
+    await query.message.edit(
+        "Method changed successfully to `{method}`".format(
+            method=method_name, username=user
+        ),
+        reply_markup=REPLY_MARKUP,
+)
+    
 
     elif query.data == "method_command":
         s = METHOD_MESSAGE.format(method=user["method"], shortener=user["base_site"])
