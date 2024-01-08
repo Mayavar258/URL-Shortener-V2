@@ -13,7 +13,7 @@ I'll handle the rest and get those links shortened or converted in a short time!
 
 START_MESSAGE = """Hi there {}, I am a Bulk Link Converter for Anlinks.in. I Can Convert Links Directly From Your Anlinks.in Account
 
-1. Go To 👉 https://Anlinks.in/
+1. Go To 👉 https://Anlinks.in/member/tools/api
 2. Then Copy API Key
 3. Then Type /api than give a single space and then paste your API Key (see example to understand more...)
 
