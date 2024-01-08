@@ -12,7 +12,7 @@ from config import *
 from database import db
 from database.users import filter_users
 from helpers import temp
-from utils import broadcast_admins, create_server, set_commands
+from utils import broadcast_admins, set_commands
 
 # Get logging configurations
 logging.config.fileConfig("logging.conf")
@@ -49,11 +49,6 @@ class Bot(Client):
 
         await broadcast_admins(self, "** Bot started successfully **")
         logging.info("Bot started")
-
-        if WEB_SERVER:
-            await create_server()
-            logging.info("Web server started")
-            logging.info("Pinging server")
 
     async def stop(self):
         await broadcast_admins(self, "** Bot Stopped Bye **")
